@@ -1,1 +1,2 @@
-console.log("¡Mi página web está funcionando!");
+console.log("¡Mi tienda está funcionando!");
+

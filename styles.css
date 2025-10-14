@@ -23,7 +23,7 @@ body {
 
 /* Header */
 header {
-  background-color: #00a86b; /* Verde Jade */
+  background-color: #006400; /* Verde hoja */
   color: white;
   padding: 60px 20px;
 }
@@ -37,12 +37,37 @@ header p {
   font-size: 1.3em;
 }
 
-/* Banner */
-.banner img {
+/* Banner como fondo */
+.banner-background {
+  background-image: url('banner.jpg'); /* Tu imagen de banner */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100%;
-  height: auto;
-  margin: 30px 0;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   border-radius: 10px;
+}
+
+/* Texto sobre banner */
+.banner-text {
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0,0,0,0.3); /* Fondo semitransparente */
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+
+.banner-text h2 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.banner-text p {
+  font-size: 1.3em;
 }
 
 /* Secciones */
@@ -68,7 +93,7 @@ section {
 }
 
 .products .card {
-  background-color: #00a86b; /* Verde Jade */
+  background-color: #006400; /* Verde hoja */
   color: #fff;
   border-radius: 10px;
   flex: 1 1 200px;
@@ -92,7 +117,7 @@ section {
 .btn {
   display: inline-block;
   padding: 12px 25px;
-  background-color: #00a86b;
+  background-color: #006400; /* Verde hoja */
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -101,7 +126,7 @@ section {
 }
 
 .btn:hover {
-  background-color: #00825a;
+  background-color: #004d00; /* Verde hoja más oscuro */
   transform: scale(1.05);
 }
 
