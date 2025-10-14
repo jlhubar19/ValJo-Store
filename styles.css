@@ -3,64 +3,104 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Cuerpo */
+/* Body */
 body {
-  background-color: #f5f5f5;
+  background-color: #f0f2f5;
   color: #333;
   line-height: 1.6;
+}
+
+/* Contenedor */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
   text-align: center;
 }
 
-/* Encabezado */
+/* Header */
 header {
-  background-color: #2c3e50;
-  color: #fff;
-  padding: 40px 20px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 60px 20px;
 }
 
 header h1 {
-  font-size: 2.5em;
+  font-size: 3em;
   margin-bottom: 10px;
 }
 
 header p {
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 /* Banner */
 .banner img {
   width: 100%;
   height: auto;
-  margin-top: 20px;
+  margin: 30px 0;
+  border-radius: 10px;
 }
 
 /* Secciones */
 section {
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
-/* Botón de contacto */
+.about {
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 40px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Proyectos */
+.projects .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.projects .card {
+  background-color: #2575fc;
+  color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  flex: 1 1 200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.projects .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Botón */
 .btn {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #e67e22;
+  padding: 12px 25px;
+  background-color: #6a11cb;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
-  margin-top: 10px;
+  transition: all 0.3s;
 }
 
 .btn:hover {
-  background-color: #d35400;
+  background-color: #2575fc;
+  transform: scale(1.05);
 }
 
-/* Pie de página */
+/* Footer */
 footer {
-  background-color: #2c3e50;
+  background-color: #222;
   color: #fff;
-  padding: 20px;
+  padding: 30px 20px;
   margin-top: 20px;
 }
