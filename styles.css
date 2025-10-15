@@ -8,12 +8,12 @@
 
 /* Body */
 body {
-  background-color: #f5f0e1; /* Crema/Hueso */
+  background-color: #f5f0e1; /* Crema / Hueso */
   color: #333;
   line-height: 1.6;
 }
 
-/* Contenedor */
+/* Contenedor general */
 .container {
   width: 90%;
   max-width: 1000px;
@@ -26,6 +26,7 @@ header {
   background-color: #006400; /* Verde hoja */
   color: white;
   padding: 60px 20px;
+  border-bottom: 5px solid #004d00;
 }
 
 header h1 {
@@ -37,54 +38,74 @@ header p {
   font-size: 1.3em;
 }
 
-/* Banner como fondo */
+/* === Banner con fondo === */
+.banner {
+  position: relative;
+  height: 100vh; /* Ocupa toda la pantalla */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .banner-background {
-  background-image: url('banner.jpg'); /* Tu imagen de banner */
+  background-image: url('banner.jpg.png'); /* Usa el nombre exacto */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100%;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  border-radius: 10px;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  filter: brightness(70%);
 }
 
-/* Texto sobre banner */
 .banner-text {
+  position: relative;
+  z-index: 1;
   color: #fff;
   text-align: center;
-  background-color: rgba(0,0,0,0.3); /* Fondo semitransparente */
-  padding: 20px 40px;
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 30px 60px;
+  border-radius: 12px;
+  animation: fadeIn 2s ease-out;
 }
 
 .banner-text h2 {
-  font-size: 2.5em;
+  font-size: 2.8em;
   margin-bottom: 10px;
 }
 
 .banner-text p {
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
 
-/* Secciones */
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Secciones generales */
 section {
-  padding: 50px 20px;
+  padding: 60px 20px;
 }
 
 /* About */
 .about {
   background-color: #fff8f0;
   border-radius: 10px;
-  margin: 20px 0;
+  margin: 40px 0;
   padding: 40px 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Productos / tarjetas */
+/* Productos */
 .products .cards {
   display: flex;
   flex-wrap: wrap;
@@ -93,10 +114,10 @@ section {
 }
 
 .products .card {
-  background-color: #006400; /* Verde hoja */
+  background-color: #006400;
   color: #fff;
   border-radius: 10px;
-  flex: 1 1 200px;
+  flex: 1 1 250px;
   padding: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -104,7 +125,7 @@ section {
 .products .card img {
   width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 8px;
   margin-bottom: 10px;
 }
 
@@ -113,20 +134,20 @@ section {
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Catálogo / Botones */
+/* Botones */
 .btn {
   display: inline-block;
   padding: 12px 25px;
-  background-color: #006400; /* Verde hoja */
+  background-color: #006400;
   color: #fff;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 6px;
   transition: all 0.3s;
   margin: 10px 5px;
 }
 
 .btn:hover {
-  background-color: #004d00; /* Verde hoja más oscuro */
+  background-color: #004d00;
   transform: scale(1.05);
 }
 
@@ -135,5 +156,6 @@ footer {
   background-color: #222;
   color: #fff;
   padding: 30px 20px;
-  margin-top: 20px;
+  margin-top: 40px;
+  font-size: 0.9em;
 }
