@@ -1,4 +1,4 @@
-/* Reset y fuente base */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -6,138 +6,174 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Fondo general en tono crema */
-body {
-  background-color: #f5f0e1; /* crema/hueso */
-  color: #333;
-}
-
-/* ===== BANNER PRINCIPAL ===== */
+/* Banner principal */
 .banner {
   position: relative;
-  height: 100vh;
-  background: url("banner.jpg.png") no-repeat center center/cover;
+  width: 100%;
+  height: 70vh;
+  background-image: url("banner.jpg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000;
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
+  align-items: center;
   overflow: hidden;
 }
 
-/* Capa tornasolada encima del fondo */
-.banner::after {
+/* Efecto tornasol animado */
+.banner::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    120deg,
-    rgba(0, 100, 0, 0.6),
-    rgba(255, 255, 255, 0.1),
-    rgba(0, 100, 0, 0.6)
+  background: linear-gradient(45deg,
+    rgba(255, 0, 150, 0.25),
+    rgba(0, 229, 255, 0.25),
+    rgba(255, 255, 0, 0.25)
   );
-  background-size: 300% 300%;
-  animation: tornasol 8s infinite linear;
+  background-size: 400% 400%;
+  animation: tornasol 8s ease infinite;
   z-index: 1;
+  mix-blend-mode: overlay;
 }
 
-/* Animación del brillo */
+/* Capa de texto */
+.overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+/* Título 3D */
+.titulo {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #00ff7f, #00bfff, #ff69b4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0px 0px 10px rgba(255,255,255,0.6);
+  letter-spacing: 2px;
+  animation: brillo 4s infinite alternate;
+}
+
+/* Animación de brillo 3D */
+@keyframes brillo {
+  0% { text-shadow: 0 0 10px #00ff7f, 0 0 20px #00ff7f; }
+  50% { text-shadow: 0 0 20px #00bfff, 0 0 40px #00bfff; }
+  100% { text-shadow: 0 0 25px #ff69b4, 0 0 45px #ff69b4; }
+}
+
+/* Subtítulo */
+.subtitulo {
+  font-size: 1.4rem;
+  margin-top: 12px;
+  color: #c8facc;
+  text-shadow: 0 0 5px rgba(200,250,204,0.3);
+}
+
+/* Animación tornasol */
 @keyframes tornasol {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Contenido sobre el banner */
-.banner .content {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+/* Sección Catálogos */
+.catalogos {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f5f5f5;
 }
 
-.banner h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+.catalogos h2 {
+  font-size: 2.3rem;
+  color: #006400;
+  margin-bottom: 30px;
 }
 
-.banner p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
-}
-
-/* ===== BOTONES ===== */
-.btn {
+.botones .btn {
   display: inline-block;
-  padding: 12px 25px;
-  background-color: #006400; /* verde hoja */
+  padding: 14px 28px;
+  background-color: #006400;
   color: white;
-  border-radius: 30px;
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: bold;
   margin: 10px;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
 
-.btn:hover {
-  background-color: #004d00; /* más oscuro */
+.botones .btn:hover {
+  background-color: #004d00;
   transform: scale(1.05);
 }
 
-/* ===== GALERÍA ===== */
-.gallery {
-  padding: 60px 20px;
+/* Productos destacados */
+.productos {
   text-align: center;
-  background-color: #fff8f0;
+  padding: 60px 20px;
+  background-color: #fff;
 }
 
-.gallery h2 {
-  color: #004d00;
-  margin-bottom: 40px;
-  font-size: 2rem;
+.productos h2 {
+  color: #006400;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
 }
 
-.gallery .images {
-  display: flex;
-  justify-content: center;
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  flex-wrap: wrap;
+  justify-items: center;
 }
 
-.gallery img {
-  width: 250px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+.galeria img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: transform 0.3s;
 }
 
-.gallery img:hover {
+.galeria img:hover {
   transform: scale(1.05);
 }
 
-/* ===== SECCIÓN SOBRE NOSOTROS ===== */
-.about {
-  background-color: #ffffff;
-  padding: 60px 20px;
+/* Sobre nosotros */
+.nosotros {
+  background-color: #f8fff4;
+  padding: 60px 30px;
   text-align: center;
 }
 
-.about h2 {
-  color: #004d00;
+.nosotros h2 {
+  font-size: 2rem;
+  color: #006400;
   margin-bottom: 20px;
 }
 
-.about p {
+.nosotros p {
   max-width: 700px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  color: #555;
+  margin: auto;
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* ===== FOOTER ===== */
+/* Footer */
 footer {
-  background-color: #004d00;
+  background-color: #222;
   color: #fff;
+  padding: 25px;
   text-align: center;
-  padding: 20px;
+  font-size: 0.9rem;
 }
