@@ -1,161 +1,119 @@
-/* Reset básico */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-/* Body */
 body {
-  background-color: #f5f0e1; /* Crema / Hueso */
-  color: #333;
-  line-height: 1.6;
+    color: #333;
+    background-color: #f7f3e9;
 }
 
-/* Contenedor general */
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* Header */
-header {
-  background-color: #006400; /* Verde hoja */
-  color: white;
-  padding: 60px 20px;
-  border-bottom: 5px solid #004d00;
-}
-
-header h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-}
-
-header p {
-  font-size: 1.3em;
-}
-
-/* === Banner con fondo === */
+/* Banner con fondo tornasolado */
 .banner {
-  position: relative;
-  height: 100vh; /* Ocupa toda la pantalla */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+    position: relative;
+    height: 100vh;
+    background: url("banner.jpg.png") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
 }
 
-.banner-background {
-  background-image: url('banner.jpg.png'); /* Usa el nombre exacto */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  filter: brightness(70%);
+/* Capa verde oscura + tornasol animado */
+.banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(0, 60, 40, 0.5),
+        rgba(255, 255, 255, 0.1),
+        rgba(0, 60, 40, 0.5)
+    );
+    background-size: 300% 300%;
+    animation: shine 6s infinite linear;
+    z-index: 1;
 }
 
-.banner-text {
-  position: relative;
-  z-index: 1;
-  color: #fff;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 30px 60px;
-  border-radius: 12px;
-  animation: fadeIn 2s ease-out;
+@keyframes shine {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.banner-text h2 {
-  font-size: 2.8em;
-  margin-bottom: 10px;
+/* Contenido encima del fondo */
+.banner .content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
 }
 
-.banner-text p {
-  font-size: 1.4em;
+.banner h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
-/* Animación de entrada */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Secciones generales */
-section {
-  padding: 60px 20px;
-}
-
-/* About */
-.about {
-  background-color: #fff8f0;
-  border-radius: 10px;
-  margin: 40px 0;
-  padding: 40px 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-/* Productos */
-.products .cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.products .card {
-  background-color: #006400;
-  color: #fff;
-  border-radius: 10px;
-  flex: 1 1 250px;
-  padding: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.products .card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.products .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+.banner p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
 
 /* Botones */
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  background-color: #006400;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.3s;
-  margin: 10px 5px;
+.buttons .btn {
+    background-color: #004d2d;
+    color: white;
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.3s;
 }
 
-.btn:hover {
-  background-color: #004d00;
-  transform: scale(1.05);
+.buttons .btn:hover {
+    background-color: #007a4d;
+    transform: scale(1.05);
+}
+
+/* Galería */
+.gallery {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.gallery h2 {
+    color: #004d2d;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.gallery .images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 250px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
 }
 
 /* Footer */
 footer {
-  background-color: #222;
-  color: #fff;
-  padding: 30px 20px;
-  margin-top: 40px;
-  font-size: 0.9em;
+    background-color: #004d2d;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
 }
