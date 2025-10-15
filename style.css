@@ -1,0 +1,100 @@
+/* Fondo general */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    height: 50vh; /* Más pequeño para que se vea el logo completo */
+    background: linear-gradient(135deg, #a8ff78, #78ffd6);
+    background-image: url("banner.jpg"); /* tu imagen de fondo */
+    background-size: contain; /* muestra la imagen completa */
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Efecto tornasolado */
+.banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 255, 255, 0.3) 25%,
+        rgba(255, 0, 255, 0.3) 50%,
+        rgba(255, 255, 0, 0.3) 75%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
+    background-size: 400% 400%;
+    animation: tornasol 8s ease infinite;
+    mix-blend-mode: overlay;
+}
+
+@keyframes tornasol {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Contenido del banner */
+.banner .content {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 2;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.banner h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.banner p {
+    font-size: 1.2rem;
+}
+
+/* Productos */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.producto {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 12px;
+    height: 200px;
+    object-fit: cover;
+}
+
+footer {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
